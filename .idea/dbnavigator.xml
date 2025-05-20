@@ -39,9 +39,6 @@
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="4473dedf-5430-427d-a306-777bf18d0ef3" />
   </component>
-  <component name="DBNavigator.Project.FileConnectionMappingManager">
-    <mapping file-url="file://$PROJECT_DIR$/src/persistencia" connection-id="virtual-mysql-connection" session-id="MAIN" current-schema="" />
-  </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
     <filters />

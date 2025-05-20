@@ -2,8 +2,6 @@ package logica;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
