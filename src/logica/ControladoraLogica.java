@@ -3,7 +3,6 @@ package logica;
 import persistencia.ControladoraPersistencia;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class ControladoraLogica {
 
@@ -18,7 +17,7 @@ public class ControladoraLogica {
         controlPersis.editarDepartamento(departamento);
     }
 
-    public void eliminarDepartamento(String codigo){
+    public void eliminarDepartamento(Long codigo){
         controlPersis.eliminarDepartamento(codigo);
     }
 
@@ -41,12 +40,12 @@ public class ControladoraLogica {
         controlPersis.editarEmpleado(empleado);
     }
 
-    public void eliminarEmpleado(String documentoNumero){
+    public void eliminarEmpleado(Long documentoNumero){
         controlPersis.eliminarEmpleado(documentoNumero);
     }
 
-    public Empleado buscarEmpleado(String documentoNumero){
-        return controlPersis.buscarEmpleado(documentoNumero);
+    public Empleado buscarEmpleado(Long id){
+        return controlPersis.buscarEmpleado(id);
     }
 
     public ArrayList<Empleado> mostrarListaEmpleados(){

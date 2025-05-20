@@ -34,11 +34,11 @@ public class ControladoraPersistencia {
 
     public ArrayList<Departamento> mostrarListaDepartamentos() {
         List<Departamento> list = depJpa.findDepartamentoEntities();
-        ArrayList<Departamento> listaDepartamentos = new ArrayList<Departamento>(list);
+        ArrayList<Departamento> listaDepartamentos = new ArrayList<>(list);
         return listaDepartamentos;
     }
 
-    public void eliminarDepartamento(String id) {
+    public void eliminarDepartamento(Long id) {
         try {
             depJpa.destroy(id);
         } catch (Exception e) {
@@ -59,7 +59,7 @@ public class ControladoraPersistencia {
         }
     }
 
-    public void eliminarEmpleado(String documentoNumero) {
+    public void eliminarEmpleado(Long documentoNumero) {
         try {
             empJpa.destroy(documentoNumero);
         } catch (Exception e) {
@@ -67,8 +67,8 @@ public class ControladoraPersistencia {
         }
     }
 
-    public Empleado buscarEmpleado(String documentoNumero) {
-        return empJpa.findEmpleado(documentoNumero);
+    public Empleado buscarEmpleado(Long id) {
+        return empJpa.findEmpleado(id);
     }
 
 

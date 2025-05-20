@@ -2,31 +2,30 @@ package logica;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 
 @Entity
 public class Empleado {
+    //Mapeo de atributos
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE) // permite que al generarse un nuevo registro desde esta clase su id se cargue automaticamente y de manera secuencial
     private Long idEmpleado; //se declara tipo long al permitir guardar NULL
-    @Basic
-    private String documentoTipo;
+    @Basic //atributos normales de la entidad
+    private String documentoTipo; //Se puede convertir en un enum para normalizar las tablas
     private String documentoNumero;
     private String nombres;
     private String apellidos;
-    @ManyToOne
-    @JoinColumn(name="IDDEPARTAMENTO", referencedColumnName="IDDEPARTAMENTO")
+    @ManyToOne //Cardinalidad de tablas
+    @JoinColumn(name="IDDEPARTAMENTO", referencedColumnName="IDDEPARTAMENTO")// Fk de la tabla departamento
     private Departamento departamento;
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.TIMESTAMP)//Estable el registro de tipo fecha
     private final Date fechaCreacion;    // nueva fecha de creación
     @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaModificacion;
+    private Date fechaModificacion; //Cada modificacion se actualiza
     // Constructores
     public Empleado() {
-        this.fechaCreacion = new Date(); //sé instancia la fecha de creacion
+        this.fechaCreacion = new Date();
     }
 
     public Empleado(String documentoTipo,
@@ -38,7 +37,7 @@ public class Empleado {
         this.documentoNumero = documentoNumero;
         this.nombres = nombres;
         this.apellidos = apellidos;
-        this.fechaCreacion   = new Date();
+        this.fechaCreacion   = new Date(); //sé instancia la fecha de creacion
         this.departamento = departamento;
     }
 
@@ -106,14 +105,14 @@ public class Empleado {
     //Clase especial para mostrar los atributos de un objeto de la clase
     @Override
     public String toString() {
-        return "Empleado{" +
-                "id=" + idEmpleado +
-                ", documentoTipo= " + documentoTipo  +
-                ", documentoNumero= " + documentoNumero +
-                ", nombres= " + nombres +
-                ", apellidos= " + apellidos +
-                ", fechaCreacion= " + fechaCreacion+
-                " }";
+        return "\nEmpleado "+ idEmpleado +
+                "\nDocumentoTipo= " + documentoTipo  +
+                "\nDocumentoNumero= " + documentoNumero +
+                "\nNombres= " + nombres +
+                "\nApellidos= " + apellidos +
+                "\n" + departamento +
+                "\nFechaCreacion= " + fechaCreacion +
+                "\nFechaActualizacion= " + fechaModificacion +"\n";
     }
 }
 

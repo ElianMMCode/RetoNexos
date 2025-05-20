@@ -1,7 +1,6 @@
 package logica;
 
 import jakarta.persistence.*;
-
 import java.util.*;
 
 @Entity
@@ -73,14 +72,13 @@ public class Departamento {
 
     //Clase especial para mostrar los atributos de un objeto de la clase
     public String toString() {
-        return "Departamento{" +
-                "id=" + idDepartamento +
-                ", codigo= " + codigoDepartamento +
-                ", nombre= " + nombreDepartamento +
-                ", fechaCreacion= "+ fechaCreacion +
-                ", fechaUltimaModificacion= "+fechaModificacion+
-                ", empleados= " + empleados.size() +
-                " }";
+        return "\nDepartamento " +
+                "id= " + idDepartamento +
+                "\n Codigo= " + codigoDepartamento +
+                "\n Nombre= " + nombreDepartamento +
+                "\n FechaCreacion= "+ fechaCreacion +
+                "\n FechaActualizacion= "+fechaModificacion+
+                "\n Empleados= " + empleados.size() +"\n";
     }
 
 

@@ -48,7 +48,7 @@ public class DepartamentoJpaController implements Serializable {
         }
     }
 
-    public void destroy(String id) throws Exception {
+    public void destroy(Long id) throws Exception {
         EntityManager em = getEntityManager();
         try {
             em.getTransaction().begin();
