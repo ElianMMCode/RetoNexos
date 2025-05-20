@@ -46,13 +46,13 @@ public class EmpleadoJpaController implements Serializable {
         }
     }
 
-    public void destroy(Long id) throws Exception {
+    public void destroy(String documentoNumero) throws Exception {
         EntityManager em = getEntityManager();
         try {
             em.getTransaction().begin();
-            Empleado empleado = em.find(Empleado.class, id);
+            Empleado empleado = em.find(Empleado.class, documentoNumero);
             if (empleado == null) {
-                throw new Exception("El empleado con id " + id + " no existe.");
+                throw new Exception("El empleado con numero de documento " + documentoNumero + " no existe.");
             }
             em.remove(empleado);
             em.getTransaction().commit();
@@ -64,10 +64,10 @@ public class EmpleadoJpaController implements Serializable {
         }
     }
 
-    public Empleado findEmpleado(Long id) {
+    public Empleado findEmpleado(String documentoNumero) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Empleado.class, id);
+            return em.find(Empleado.class, documentoNumero);
         } finally {
             if (em != null) em.close();
         }
