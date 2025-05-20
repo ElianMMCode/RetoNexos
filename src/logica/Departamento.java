@@ -1,26 +1,35 @@
 package logica;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+@Entity
 public class Departamento {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long idDepartamento;
+    @Basic
     private String codigoDepartamento;
     private String nombreDepartamento;
-    private final LocalDateTime fechaCreacion;      // nueva fecha de creación
+    @Temporal(TemporalType.TIMESTAMP)
+    //@Column(name="fecha_creacion")
+    private final Date fechaCreacion;      // nueva fecha de creación
     private final Map<Long, Empleado> empleados = new LinkedHashMap<>();  // Lista de empleados guardados por departamento
 
     // Constructores
     public Departamento() {
-        this.fechaCreacion = LocalDateTime.now();
+        this.fechaCreacion = new Date();
     }
 
     public Departamento(String codigoDepartamento, String nombreDepartamento) {
         this.codigoDepartamento = codigoDepartamento;
         this.nombreDepartamento = nombreDepartamento;
-        this.fechaCreacion = LocalDateTime.now();
+        this.fechaCreacion = new Date();
     }
 
     // Getters y setters
@@ -43,7 +52,7 @@ public class Departamento {
         this.nombreDepartamento = nombreDepartamento;
     }
 
-    public LocalDateTime getFechaCreacion() {
+    public Date getFechaCreacion() {
         return fechaCreacion;
     }
 
@@ -63,7 +72,7 @@ public class Departamento {
                 "id=" + idDepartamento +
                 ", codigo= " + codigoDepartamento +
                 ", nombre= " + nombreDepartamento +
-                ", fechaCreacion= "+ fechaCreacion.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")) +
+                ", fechaCreacion= "+ fechaCreacion +
                 ", empleados= " + empleados.size() +
                 " }";
     }

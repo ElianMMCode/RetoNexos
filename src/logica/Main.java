@@ -1,6 +1,8 @@
 package logica;
 
 
+import persistencia.ControladoraPersistencia;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -9,12 +11,13 @@ import java.util.Scanner;
 public class Main {
     //lista de collections de departamentos
     private static final List<Departamento> departamentos = new ArrayList<>();
-
     //Ids para los empleados
-    private static long asignarDepId = 1L;
-    private static long asignarEmpId = 1L;
+    //private static long asignarDepId = 1L;
+    //private static long asignarEmpId = 1L;
 
     public static void main(String[] args) {
+        ControladoraPersistencia controlPersis = new ControladoraPersistencia();
+
         Scanner kb = new Scanner(System.in);
         //si no consigue ninguna opcion salta al default
         int opcion = -1;
@@ -47,7 +50,7 @@ public class Main {
                     String nombre = kb.nextLine();
                     Departamento d1 = new Departamento(codigo, nombre);
                     departamentos.add(d1);
-                    d1.setIdDepartamento(asignarDepId++);
+                    //d1.setIdDepartamento(asignarDepId++);
                     System.out.println("Departamento creado: " + d1);
                     break;
 
@@ -118,7 +121,7 @@ public class Main {
                         System.out.println("Departamento no existe.");
                     } else {
                         Empleado e = new Empleado(tipoDoc, numDoc, nombres, apellidos);
-                        e.setIdEmpleado(asignarEmpId++);
+                        //e.setIdEmpleado(asignarEmpId++);
                         e.setDepartamento(dept);
                         dept.agregarEmpleado(e);
                         System.out.println("Empleado creado con ID " + e.getIdEmpleado() + " en depto " + dept.getCodigoDepartamento());

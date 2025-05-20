@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpbDataSourceConfig">
+    <data-sources>
+      <data-source id="a6cdfa07-94a8-4832-b0a3-8143c290bb70" name="reto-nexos" url="jdbc:mysql://localhost/retoNexos?useSSL=false&amp;allowMultiQueries=true&amp;serverTimezone=UTC" driverClass="com.mysql.cj.jdbc.Driver" />
+      <data-source id="19d846db-bb82-4aeb-a72d-702331cb2a4b" name="reto-nexos2" url="jdbc:mysql://localhost/retoNexos?useSSL=false&amp;allowMultiQueries=true&amp;serverTimezone=UTC" driverClass="com.mysql.cj.jdbc.Driver" />
+      <data-source id="705d52ab-be42-4c8f-a146-259dfc0b85e6" name="retoNexos" url="jdbc:mysql://localhost/retoNexos?useSSL=false&amp;allowMultiQueries=true&amp;serverTimezone=UTC" driverClass="com.mysql.cj.jdbc.Driver" />
+    </data-sources>
+    <data-source-infos>
+      <data-source-info id="705d52ab-be42-4c8f-a146-259dfc0b85e6" persistence-unit-name="retoNexos" />
+      <data-source-info id="19d846db-bb82-4aeb-a72d-702331cb2a4b" persistence-unit-name="Default" />
+    </data-source-infos>
+  </component>
+</project>

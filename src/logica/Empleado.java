@@ -1,20 +1,30 @@
 package logica;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
+
+@Entity
 public class Empleado {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long idEmpleado; //se declara tipo long al permitir guardar NULL
+    @Basic
     private String documentoTipo;
     private String documentoNumero;
     private String nombres;
     private String apellidos;
-    private final LocalDateTime fechaCreacion;    // nueva fecha de creación
     private Departamento departamento;
+    @Temporal(TemporalType.TIMESTAMP)
+    //@Column(name="fecha_creacion")
+    private final Date fechaCreacion;    // nueva fecha de creación
 
     // Constructores
     public Empleado() {
-        this.fechaCreacion = LocalDateTime.now(); //sé instancia la fecha de creacion
+        this.fechaCreacion = new Date(); //sé instancia la fecha de creacion
     }
 
     public Empleado(String documentoTipo,
@@ -25,7 +35,7 @@ public class Empleado {
         this.documentoNumero = documentoNumero;
         this.nombres = nombres;
         this.apellidos = apellidos;
-        this.fechaCreacion   = LocalDateTime.now();
+        this.fechaCreacion   = new Date();
     }
 
 
@@ -62,7 +72,7 @@ public class Empleado {
         this.apellidos = apellidos;
     }
 
-    public LocalDateTime getFechaCreacion() {
+    public Date getFechaCreacion() {
         return fechaCreacion;
     }
 
@@ -85,7 +95,7 @@ public class Empleado {
                 ", documentoNumero= " + documentoNumero +
                 ", nombres= " + nombres +
                 ", apellidos= " + apellidos +
-                ", fechaCreacion= " + fechaCreacion.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))+
+                ", fechaCreacion= " + fechaCreacion /*.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))*/+
                 " }";
     }
 }
